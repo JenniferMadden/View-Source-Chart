@@ -1,0 +1,12 @@
+This code is used as a View Source Chart bookmarklet for Firefox, Chrome, Safari, Opera. 
+
+
+
+Add Javascript window properties (status=0,location=0, etc) to var wprops, between single quotes, to cause charts to open in a new window. Leave var wprops as an empty string to cause charts to open in a new tab (default). var wprops is on the first line of the script, right after 'javascript:' protocol.
+
+Remove 'javascript:' protocol to embed directly in a webpage: VSCb() is called at last line of script, so move that call inline to execute as user action, or put entire script just before closing body tag to prevent error if you want to execute as page loads.
+
+I will probably just fork an IE version eventually, but if you want to tackle it yourself, for version 8, (only version I've tested), the script must be dropped into a page as an external script via a favorite using javascript e.g.
+javascript:document.getElementsByTagName('head')[0].appendChild(document.createElement('script')).setAttribute('src','path_to_file.js');
+
+Also for IE, the innerHTML string must be converted to lowercase as IE returns it in uppercase. Other various workarounds may be required for IE, such as cloneNode method, but as I recall, not too many.
